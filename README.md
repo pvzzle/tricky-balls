@@ -2,28 +2,51 @@
 
 (1) Рассмотрим простой случай для двух контейнеров с шарами белого и черного цветов соответственно, где в каждом контейнере лежит по одному шару каждого цвета.
 
-$\begin{bmatrix}1 & 1 \\ 1 & 1 \end{bmatrix}$
+```math
+\begin{bmatrix}1 & 1 \\ 1 & 1 \end{bmatrix}
+```
 
 Поменяем 1 белый шар из первого контейнера на 1 черный шар из второго контейнера:
-$\begin{bmatrix}1-1 & 1+1 \\ 1+1 & 1-1 \end{bmatrix}$ = $\begin{bmatrix}0 & 2 \\ 2 & 0 \end{bmatrix}$. Поменяем контейнеры местами и получим диагональную матрицу $\begin{bmatrix}2 & 0 \\ 0 & 2 \end{bmatrix}$. Красиво :)
+
+```math
+\begin{bmatrix}1-1 & 1+1 \\ 1+1 & 1-1 \end{bmatrix} = \begin{bmatrix}0 & 2 \\ 2 & 0 \end{bmatrix}
+```
+
+Поменяем контейнеры местами и получим диагональную матрицу
+
+```math
+\begin{bmatrix}2 & 0 \\ 0 & 2 \end{bmatrix}
+```
+
+Красиво :)
 
 (2) Теперь вернемся к матрице единиц, положим в первый контейнер еще 1 белый шар и посмотрим, что из этого выйдет.
 
-$\begin{bmatrix}2 & 1 \\ 1 & 1 \end{bmatrix}$
+```math
+\begin{bmatrix}2 & 1 \\ 1 & 1 \end{bmatrix}
+```
 
-$\begin{bmatrix}2 & 1 \\ 1 & 1 \end{bmatrix}$ -> $\begin{bmatrix}2+1 & 1-1 \\ 1-1 & 1+1 \end{bmatrix}$ -> $\begin{bmatrix}3 & 0 \\ 0 & 2 \end{bmatrix}$
+```math
+\begin{bmatrix}2 & 1 \\ 1 & 1 \end{bmatrix} -> \begin{bmatrix}2+1 & 1-1 \\ 1-1 & 1+1 \end{bmatrix} -> \begin{bmatrix}3 & 0 \\ 0 & 2 \end{bmatrix}
+```
 
 Либо так:
 
-$\begin{bmatrix}2 & 1 \\ 1 & 1 \end{bmatrix}$ -> $\begin{bmatrix}2-1 & 1+1 \\ 1+1 & 1-1 \end{bmatrix}$ -> $\begin{bmatrix}1 & 2 \\ 2 & 0 \end{bmatrix}$ -> $\begin{bmatrix}1+2 & 2-2 \\ 2-2 & 0+2 \end{bmatrix}$ -> $\begin{bmatrix}3 & 0 \\ 0 & 2 \end{bmatrix}$
+```math
+\begin{bmatrix}2 & 1 \\ 1 & 1 \end{bmatrix} -> \begin{bmatrix}2-1 & 1+1 \\ 1+1 & 1-1 \end{bmatrix} -> \begin{bmatrix}1 & 2 \\ 2 & 0 \end{bmatrix} -> \begin{bmatrix}1+2 & 2-2 \\ 2-2 & 0+2 \end{bmatrix} -> \begin{bmatrix}3 & 0 \\ 0 & 2 \end{bmatrix}
+```
 
 (3) Окей. Попробуем добавить в первый контейнер еще 1 черный шар:
 
-$\begin{bmatrix}2 & 2 \\ 1 & 1 \end{bmatrix}$
+```math
+\begin{bmatrix}2 & 2 \\ 1 & 1 \end{bmatrix}
+```
 
-$\begin{bmatrix}2 & 2 \\ 1 & 1 \end{bmatrix}$ -> $\begin{bmatrix}2-1 & 2+1 \\ 1+1 & 1-1 \end{bmatrix}$ -> $\begin{bmatrix}1 & 3 \\ 2 & 0 \end{bmatrix}$ (\*) -> $\begin{bmatrix}1+2 & 3-2 \\ 2-2 & 0+2 \end{bmatrix}$ -> $\begin{bmatrix}3 & 1 \\ 0 & 2 \end{bmatrix}$
+```math
+\begin{bmatrix}2 & 2 \\ 1 & 1 \end{bmatrix} -> \begin{bmatrix}2-1 & 2+1 \\ 1+1 & 1-1 \end{bmatrix} -> \begin{bmatrix}1 & 3 \\ 2 & 0 \end{bmatrix} -> \begin{bmatrix}1+2 & 3-2 \\ 2-2 & 0+2 \end{bmatrix} -> \begin{bmatrix}3 & 1 \\ 0 & 2 \end{bmatrix}
+```
 
-(\*) - чем-то напоминает промежуточный этап (2), однако в данном случае "схлопнуть" матрицу также не получается, каждая следующая попытка отсортировать шары по контейнерам будет лишь "отзеркаливать" её.
+Напомнило промежуточный этап (2), однако в данном случае "схлопнуть" матрицу также не получается, каждая следующая попытка отсортировать шары по контейнерам будет лишь "отзеркаливать" её.
 
 Отсортировать не получилось :(
 
