@@ -7,7 +7,8 @@ import (
 	"slices"
 )
 
-func canSort(n int, matrix [][]int64) bool {
+func canSort(matrix [][]int64) bool {
+	n := len(matrix)
 	totalBallsInContainer := make([]int64, n)
 	totalBallsOfSameColor := make([]int64, n)
 
@@ -44,7 +45,7 @@ func main() {
 		}
 	}
 
-	if canSort(n, matrix) {
+	if canSort(matrix) {
 		fmt.Println("yes")
 	} else {
 		fmt.Println("no")
