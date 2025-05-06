@@ -7,21 +7,14 @@ import (
 	"slices"
 )
 
-func main() {
-	reader := bufio.NewReader(os.Stdin)
-	var n int = 0
-	fmt.Fscan(reader, &n)
-
+func canSort(n int, matrix [][]int64) bool {
 	totalBallsInContainer := make([]int64, n)
 	totalBallsOfSameColor := make([]int64, n)
 
 	for i := range n {
 		for j := range n {
-			var value int64 = 0
-			fmt.Fscan(reader, &value)
-
-			totalBallsInContainer[i] += value
-			totalBallsOfSameColor[j] += value
+			totalBallsInContainer[i] += matrix[i][j]
+			totalBallsOfSameColor[j] += matrix[i][j]
 		}
 	}
 
@@ -30,10 +23,30 @@ func main() {
 
 	for i := range n {
 		if totalBallsInContainer[i] != totalBallsOfSameColor[i] {
-			fmt.Println("no")
-			return
+			return false
 		}
 	}
 
-	fmt.Println("yes")
+	return true
+}
+
+func main() {
+	reader := bufio.NewReader(os.Stdin)
+
+	var n int = 0
+	fmt.Fscan(reader, &n)
+
+	matrix := make([][]int64, n)
+	for i := range matrix {
+		matrix[i] = make([]int64, n)
+		for j := range matrix[i] {
+			fmt.Fscan(reader, &matrix[i][j])
+		}
+	}
+
+	if canSort(n, matrix) {
+		fmt.Println("yes")
+	} else {
+		fmt.Println("no")
+	}
 }
