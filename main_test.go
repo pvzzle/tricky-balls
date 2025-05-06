@@ -15,6 +15,16 @@ func TestCanSort(t *testing.T) {
 		{"3x3 sortable", [][]int64{{0, 2, 1}, {1, 1, 1}, {2, 0, 0}}, true},
 		{"3x3 unsortable", [][]int64{{1, 3, 1}, {2, 1, 2}, {3, 3, 3}}, false},
 		{"4x4 sortable", [][]int64{{3, 1, 2, 0}, {2, 2, 1, 1}, {1, 3, 2, 0}, {0, 0, 1, 3}}, true},
+		{"100x100 max", func() [][]int64 {
+			matrix := make([][]int64, 100)
+			for i := range matrix {
+				matrix[i] = make([]int64, 100)
+				for j := range matrix {
+					matrix[i][j] = 1000000000
+				}
+			}
+			return matrix
+		}(), true},
 	}
 
 	for _, tt := range tests {
